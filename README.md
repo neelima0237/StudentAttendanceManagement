@@ -1,0 +1,2 @@
+# StudentAttendanceManagement
+Attendance Management System is a software developed for daily student attendance in schools, collages and institutes. If facilitates to access the attendance information of a particular student in a particular class.The information is sorted by the operators, which will be provided by the teacher for a particular class. This system will also help in evaluating attendance eligibility criteria of a student.
