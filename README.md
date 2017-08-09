@@ -1,2 +1,4 @@
 # StudentAttendanceManagement
 Attendance Management System is a software developed for daily student attendance in schools, collages and institutes. If facilitates to access the attendance information of a particular student in a particular class.The information is sorted by the operators, which will be provided by the teacher for a particular class. This system will also help in evaluating attendance eligibility criteria of a student.
+Purpose:-The purpose of developing attendance managementsystem is to computerized the tradition way of takingattendance. Another purpose for developing this softwareis to generate the report automatically at the end of thesession or in the between of the session
+Scope:-The scope of the project is the system on which thesoftware is installed, i.e. the project is developed as adesktop application, and it will work for a particularinstitute.But later on the project can be modified tooperate it online.Attendance Management System
