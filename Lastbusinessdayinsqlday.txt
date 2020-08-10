@@ -1,0 +1,24 @@
+   declare @secondLastLoadDate date;   
+   declare @lastbusDay date;
+
+with prevdates as(
+SELECT DISTINCT Top 2
+  effectivedate, 
+  ROW_NUMBER() OVER (ORDER BY effectivedate desc) row_number
+FROM Attribution.StatsBonds
+group by effectivedate)
+
+select @secondLastLoadDate = effectivedate from prevdates where row_number = 2;
+PRINT @secondLastLoadDate;
+with businessdaycheck as (SELECT DATEADD(ms,-3,DATEADD(mm,DATEDIFF(mm,0,@secondLastLoadDate)+1,0))
+- CASE DATENAME(dw,DATEADD(ms,-3,DATEADD(mm,DATEDIFF(mm,0,@secondLastLoadDate)+1,0)))
+WHEN 'SUNDAY' THEN 2
+WHEN 'SATURDAY' THEN 1
+ELSE 0
+END AS LastBusinessCurrentMonth)
+
+select @lastbusDay = LastBusinessCurrentMonth from businessdaycheck;
+PRINT @lastbusDay
+
+if(@secondLastLoadDate <> @lastbusDay)
+select * from Attribution.StatsBonds where EffectiveDate = @secondLastLoadDate
